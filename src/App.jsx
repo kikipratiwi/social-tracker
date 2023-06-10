@@ -12,7 +12,7 @@ const App = () => {
     const [isHide, setIsHide] = useState(false);
 
     const form = useForm();
-    const { handleSubmit, reset, resetField } = form;
+    const { handleSubmit, reset } = form;
 
     const saveData = async () => {
         const valid = await form.trigger();
@@ -27,10 +27,7 @@ const App = () => {
             return [...prev, values];
         });
 
-        reset();
-        resetField('name');
-
-        console.log('kseini');
+        reset({ name: '', birthDate: '', place: '', status: undefined });
     };
 
     return (
